@@ -1,0 +1,74 @@
+students = []
+
+def add_student(name, roll, course):
+    student = {
+        "Name": name,
+        "Roll": roll,
+        "Course": course
+    }
+
+    students.append(student)
+
+    print("\nStudent Added Successfully")
+
+def display_students():
+
+    if len(students) == 0:
+        print("\nNo Student Records Found")
+    else:
+        for student in students:
+            print("Name   :", student["Name"])
+            print("Roll   :", student["Roll"])
+            print("Course :", student["Course"])
+
+def search_student(roll_number):
+
+    found = False
+
+    for student in students:
+
+        if student["Roll"] == roll_number:
+
+            print("\nStudent Found")
+            print("Name   :", student["Name"])
+            print("Roll   :", student["Roll"])
+            print("Course :", student["Course"])
+
+            found = True
+            break
+
+    if not found:
+        print("\nStudent Not Found")
+while True:
+    print("1. Add Student")
+    print("2. Display Students")
+    print("3. Search Student")
+    print("4. Exit")
+
+    choice = input("Enter Your Choice: ")
+
+    if choice == "1":
+
+        name = input("Enter Student Name: ")
+        roll = input("Enter Roll Number: ")
+        course = input("Enter Course Name: ")
+
+        add_student(name, roll, course)
+
+    elif choice == "2":
+
+        display_students()
+
+    elif choice == "3":
+
+        roll_number = input("Enter Roll Number to Search: ")
+
+        search_student(roll_number)
+
+    elif choice == "4":
+
+        print("\nProgram Closed")
+        break
+
+    else:
+        print("\nInvalid Choice")
